@@ -149,7 +149,7 @@ for i=1, opt.length do
         local probs = torch.exp(prediction):squeeze()
         probs:div(torch.sum(probs)) -- renormalize so probs sum to one
         prev_char = torch.multinomial(probs:float(), 1):resize(1):float()
-        print('prev_char[1]'..prev_char[1])
+
     end
 
     -- forward the rnn for next character
@@ -158,7 +158,9 @@ for i=1, opt.length do
     for i=1,state_size do table.insert(current_state, lst[i]) end
     prediction = lst[#lst] -- last element holds the log probabilities
 
-    io.write(ivocab[prev_char[1]])
+    w=ivocab[prev_char[1]]
+    -- print(w)
+    io.write(w)
 end
 io.write('\n') io.flush()
 

@@ -89,6 +89,8 @@ protos.rnn:evaluate() -- put in eval mode so that dropout works properly
 
 -- initialize the vocabulary (and its inverted version)
 local vocab = checkpoint.vocab
+
+
 local ivocab = {}
 for c,i in pairs(vocab) do ivocab[i] = c end
 
@@ -147,6 +149,7 @@ for i=1, opt.length do
         local probs = torch.exp(prediction):squeeze()
         probs:div(torch.sum(probs)) -- renormalize so probs sum to one
         prev_char = torch.multinomial(probs:float(), 1):resize(1):float()
+        print('prev_char[1]'..prev_char[1])
     end
 
     -- forward the rnn for next character

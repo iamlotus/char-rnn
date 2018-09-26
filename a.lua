@@ -1,0 +1,2 @@
+local ivocab = {}
+print(ivocab)

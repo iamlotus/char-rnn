@@ -1,1 +1,1 @@
-mkdir -p logs && nohup th train.lua -data_dir data/jinyong -rnn_size 128 -num_layers 2 -dropout 0.5 -max_epochs 100 -print_every 100 -eval_val_every 1000 -savefile jinyong -gpuid 0 >logs/jinyong.out 2>&1 & busybox tail -f logs/jinyong.out
+mkdir -p logs && nohup th train.lua -data_dir data/jinyong -rnn_size 128 -num_layers 2 -dropout 0.5 -max_epochs 100 -print_every 100 -eval_val_every 1000 -savefile jinyong -gpuid 2 >logs/jinyong.out 2>&1 & busybox tail -f logs/jinyong.out
